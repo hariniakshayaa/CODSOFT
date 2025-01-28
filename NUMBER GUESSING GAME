@@ -1,1 +1,32 @@
+#include <iostream>
+#include <cstdlib>  
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    srand(time(0));
+    int randomNumber = rand() % 100 + 1;
+
+    cout << "******** Welcome to the NUMBER GUESSING GAME ********" << endl;
+    int attempts = 0;
+    int guess = 0;
+    while (guess != randomNumber) {
+        cout << "Enter your guess (1-100): ";
+        cin >> guess;
+        if (guess < randomNumber) {
+            cout << "Oops! The number is lower. Try again." << endl;
+        } else if (guess > randomNumber) {
+            cout << "Oops! The number is higher. Try again." << endl;
+        }
+        attempts++;
+    }
+
+    string result = (attempts > 3) ? "YOU LOSE!" : "YOU WIN!";
+
+    cout << "Congratulations! You guessed the number in " << attempts
+         << " attempts. " << result << endl;
+
+    return 0;
+}
 
